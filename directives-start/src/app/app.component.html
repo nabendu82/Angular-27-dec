@@ -1,0 +1,38 @@
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+      <button
+        class="btn btn-primary"
+        (click)="onlyOdd = !onlyOdd">Toggle numbers</button>
+      <br><br>
+      <ul class="list-group">
+        <div *ngIf="onlyOdd">
+          <li
+            class="list-group-item"
+            *ngFor="let odd of odds"
+            [ngClass]="{oddNum: odd %2 !== 0}"
+            [ngStyle]="{background: odd %2 !== 0 ? 'red': ''}">
+            {{ odd }}
+          </li>
+        </div>
+        <div *ngIf="!onlyOdd">
+          <li
+            class="list-group-item"
+            *ngFor="let even of evens"
+            [ngClass]="{oddNum: even %2 == 0}"
+            [ngStyle]="{background: even %2 == 0 ? 'green': ''}">
+            {{ even }}
+          </li>
+        </div>
+      </ul>
+      <p appBasicHighlight>Checking Basic Directive - Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis, libero dolore quam odio deleniti, nulla voluptates ducimus possimus nemo sint minima, dolorem vel atque nostrum recusandae rem? Et, temporibus voluptatum.</p>
+      <p appBestDirective>Checking Best directive - Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate, dolorum.</p>
+      <div [ngSwitch]="item">
+        <h3 *ngSwitchCase="5">Item is 5</h3>
+        <h3 *ngSwitchCase="10">Item is 10</h3>
+        <h3 *ngSwitchCase="100">Item is 100</h3>
+        <h3 *ngSwitchDefault>Item is default</h3>
+      </div>
+    </div>
+  </div>
+</div>
